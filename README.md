@@ -1,10 +1,11 @@
 # Cook-Book-App
 
-This simple Cook-Book application will be using spoonacular API. It will include the following functionalities:
+This simple Cook-Book application will be using the spoonacular API. It will include the following functionalities:
+
 - searching for recipies
 - viewing recipe details
-- save recipie to Favourite List
-- create editable shoping list based on items selected from recipe
+- saving recipie to Favourite List
+- creating an editable shopping list based on items selected from recipe
 <br>
 <br>
 
@@ -12,7 +13,7 @@ This simple Cook-Book application will be using spoonacular API. It will include
 
 ## Designs
 
-Main page will be developed based on below wireframes - Desktop/Tablet/Mobile respectively:
+The main page will be developed based on the wireframes below - Desktop/Tablet/Mobile respectively:
 
 <img src="readme_source/desktop.png" alt="Desktop main page" style="width:45%;"/>
 <img src="readme_source/tablet.png" alt="Tablet main page" style="width:30%;"/>
@@ -20,7 +21,7 @@ Main page will be developed based on below wireframes - Desktop/Tablet/Mobile re
 <br>
 <br>
 
-Recipe page will be developed based on below wireframes - Desktop and Tablet/Mobile respectively:
+The recipe page will be developed based on the wireframes below - Desktop and Tablet/Mobile respectively:
 
 <img src="readme_source/desktop_tablet_recipe.png" alt="Desktop and tablet recipe page" style="width:65%;"/>
 <img src="readme_source/mobile_recipe.png" alt="Mobile recipe page" style="width:25%;"/>
@@ -29,7 +30,8 @@ Recipe page will be developed based on below wireframes - Desktop and Tablet/Mob
 
 ---
 
-Application is created to learn technologies listed below:
+This application is created to learn the technologies listed below:
+
 - create-react-app;
 - React v17
 - TypeScript
