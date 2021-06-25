@@ -1,4 +1,6 @@
-import { Container, SearchForm, RecipesListing } from '../../components'
+import { SearchForm } from '../search-form'
+import { RecipesListing } from '../recipes-listing'
+import { Container } from '../styles/container'
 
 function Home() {
   return (
@@ -9,4 +11,4 @@ function Home() {
   );
 }
 
-export default Home;
+export { Home };

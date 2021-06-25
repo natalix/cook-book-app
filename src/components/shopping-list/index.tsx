@@ -1,7 +1,7 @@
 import React from "react";
 import { FaOpencart } from 'react-icons/fa';
 
-const ShoppingList:React.FC = () => {
+function ShoppingList() {
 
   return (
     <>
@@ -10,4 +10,4 @@ const ShoppingList:React.FC = () => {
   );
 };
 
-export default ShoppingList;
+export { ShoppingList };

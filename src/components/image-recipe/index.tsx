@@ -24,6 +24,7 @@ const RecipeName = styled.h2`
   font-weight: 300;
   border-bottom: solid 1px #ffffff;
   padding-bottom: 5px;
+  line-height: 1.5;
   margin: 0 5px 10% 10%;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -41,7 +42,7 @@ const ImageOverlay = styled.div`
   top: 0;
 `
 
-const ImageRecipe:React.FC = () => {
+function ImageRecipe() {
   return (
     // TO DO Change href into Link with data from API
     <ImageWrapper href="#">
@@ -51,4 +52,4 @@ const ImageRecipe:React.FC = () => {
   );
 };
 
-export default ImageRecipe;
+export { ImageRecipe };

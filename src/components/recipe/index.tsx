@@ -2,8 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import { md } from '../../styles';
-
-import { Container } from '../../components'
+import { Container } from '../styles/container'
 
 const RecipeWrapper = styled.div`
   display: grid;
@@ -52,7 +51,7 @@ const DescriptionWrapper = styled.div`
   }
 `
 
-const Recipe:React.FC = () => {
+function Recipe() {
   return (
     <Container>
       <RecipeWrapper>
@@ -66,4 +65,4 @@ const Recipe:React.FC = () => {
   );
 }
 
-export default Recipe;
+export { Recipe };

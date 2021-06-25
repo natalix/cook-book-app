@@ -1,7 +1,7 @@
 import React from "react";
 import { BsHeart } from 'react-icons/bs';
 
-const Favourites:React.FC = () => {
+function Favourites() {
 
   return (
     <>
@@ -10,4 +10,4 @@ const Favourites:React.FC = () => {
   );
 };
 
-export default Favourites;
+export { Favourites };

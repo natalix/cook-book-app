@@ -3,8 +3,13 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 
 import { ThemeProvider } from '@emotion/react'
 
-import { Content, Container, Header, Home, Recipe } from './components'
-import { GlobalStyles, theme } from './styles'
+import { Home } from './components/home'
+import { Content } from './components/styles/content'
+import { Container } from './components/styles/container'
+import { Header } from './components/header'
+import { Recipe } from './components/recipe'
+import { theme } from './styles'
+import { GlobalStyles } from './styles/global'
 
 function App() {
   return (

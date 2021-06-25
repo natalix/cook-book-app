@@ -3,7 +3,8 @@ import styled from '@emotion/styled';
 
 import { md, lg } from '../../styles';
 
-import { Favourites, ShoppingList } from '../../components'
+import { Favourites } from '../favourites'
+import { ShoppingList } from '../shopping-list'
 import Logo from '../../assets/img/logo.png';
 
 const HeaderTag = styled.header`
@@ -29,7 +30,7 @@ const IconWrapper = styled.div`
   justify-content: flex-end;
 `
 
-const Header:React.FC = () => {
+function Header() {
   return (
     <HeaderTag>
         <ImgWrapper><img src={Logo} alt="Cookbook-App"/></ImgWrapper>
@@ -39,4 +40,4 @@ const Header:React.FC = () => {
   );
 };
 
-export default Header;
+export { Header };

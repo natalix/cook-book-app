@@ -1,7 +1,7 @@
 import React from "react";
 import styled from '@emotion/styled';
 
-import { ImageRecipe } from '..'
+import { ImageRecipe } from '../image-recipe'
 import { md, lg } from '../../styles';
 
 const RecipesWrapper = styled.div`
@@ -25,7 +25,7 @@ const RecipesWrapper = styled.div`
   }
 `
 
-const RecipesListing:React.FC = () => {
+function RecipesListing() {
 
   // TO DO Change with API data
   const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
@@ -40,4 +40,4 @@ const RecipesListing:React.FC = () => {
   );
 };
 
-export default RecipesListing;
+export { RecipesListing };

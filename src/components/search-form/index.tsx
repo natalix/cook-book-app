@@ -2,7 +2,8 @@ import React from "react";
 import styled from '@emotion/styled';
 
 import { md, lg } from '../../styles'
-import { Input, Button } from '../styles'
+import { Button } from '../styles/button'
+import { Input } from '../styles/input'
 
 const InputWrapper = styled.div`
   display: flex;
@@ -31,7 +32,7 @@ const InputWrapper = styled.div`
   }
 `
 
-const SearchForm:React.FC = () => {
+function SearchForm() {
 
   return (
     <form>
@@ -43,4 +44,4 @@ const SearchForm:React.FC = () => {
   );
 };
 
-export default SearchForm;
+export { SearchForm };
