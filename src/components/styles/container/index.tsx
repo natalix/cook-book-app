@@ -1,6 +1,6 @@
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
-import { md, lg, xl } from '../../../styles'
+import { md, lg, xl } from '../../../styles';
 
 export const Container = styled.div`
   margin: 0 auto;
@@ -19,4 +19,4 @@ export const Container = styled.div`
   ${xl} {
     max-width: 1140px;
   }
-`
+`;

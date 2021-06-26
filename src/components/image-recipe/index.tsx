@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import styled from '@emotion/styled';
 
 const ImageWrapper = styled.a`
@@ -13,13 +13,13 @@ const ImageWrapper = styled.a`
 
   /* TO DO Change image from API */
   background-image: url('https://spoonacular.com/recipeImages/716429-312x231.jpg');
-`
+`;
 const RecipeName = styled.h2`
-  color: ${props => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.white};
   position: absolute;
   bottom: 0;
   z-index: 1;
-  font-family: 'Merriweather',serif;
+  font-family: 'Merriweather', serif;
   font-size: 30px;
   font-weight: 300;
   border-bottom: solid 1px #ffffff;
@@ -31,25 +31,28 @@ const RecipeName = styled.h2`
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-`
+`;
 
 const ImageOverlay = styled.div`
-  background: linear-gradient( rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100% );
+  background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
   position: absolute;
   height: 100%;
   width: 100%;
   left: 0;
   top: 0;
-`
+`;
 
 function ImageRecipe() {
   return (
     // TO DO Change href into Link with data from API
     <ImageWrapper href="#">
-      <RecipeName>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel malesuada neque, et porttitor erat.</RecipeName>
-      <ImageOverlay/>
+      <RecipeName>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel
+        malesuada neque, et porttitor erat.
+      </RecipeName>
+      <ImageOverlay />
     </ImageWrapper>
   );
-};
+}
 
 export { ImageRecipe };
