@@ -1,13 +1,12 @@
-import React from "react";
+import React from 'react';
 import { FaOpencart } from 'react-icons/fa';
 
 function ShoppingList() {
-
   return (
     <>
-      <FaOpencart/>
+      <FaOpencart />
     </>
   );
-};
+}
 
 export { ShoppingList };

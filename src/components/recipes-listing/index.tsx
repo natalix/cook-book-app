@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 import styled from '@emotion/styled';
 
-import { ImageRecipe } from '../image-recipe'
+import { ImageRecipe } from '../image-recipe';
 import { md, lg } from '../../styles';
 
 const RecipesWrapper = styled.div`
@@ -23,21 +23,14 @@ const RecipesWrapper = styled.div`
     grid-template-rows: repeat(3, 1fr);
     gap: 20px 20px;
   }
-`
+`;
 
 function RecipesListing() {
-
   // TO DO Change with API data
-  const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-  let result = items.map(item => (
-    <ImageRecipe key={item} />
-  ));
+  const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const result = items.map((item) => <ImageRecipe key={item} />);
 
-  return (
-    <RecipesWrapper>
-      {result}
-    </RecipesWrapper>
-  );
-};
+  return <RecipesWrapper>{result}</RecipesWrapper>;
+}
 
 export { RecipesListing };

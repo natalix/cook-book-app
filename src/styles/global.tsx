@@ -1,12 +1,13 @@
+import React from 'react';
 import { Global, css } from '@emotion/react';
 import emotionNormalize from 'emotion-normalize';
 
-import { theme } from './'
+import { theme } from '.';
 
 const GlobalStyles = () => {
   return (
     <Global
-    	styles={css`
+      styles={css`
         ${emotionNormalize}
 
         body {

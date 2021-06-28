@@ -1,4 +1,5 @@
 # Cook-Book-App
+
 Cook-Book application
 
 This simple Cook-Book application will be using the spoonacular API. It will include the following functionalities:
@@ -7,7 +8,7 @@ This simple Cook-Book application will be using the spoonacular API. It will inc
 - viewing recipe details
 - saving recipie to Favourite List
 - creating an editable shopping list based on items selected from recipe
-<br>
+  <br>
 
 ---
 
@@ -49,6 +50,7 @@ In the project directory, you can run:
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.

@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 import styled from '@emotion/styled';
 
-import { md, lg } from '../../styles'
-import { Button } from '../styles/button'
-import { Input } from '../styles/input'
+import { md, lg } from '../../styles';
+import { Button } from '../styles/button';
+import { Input } from '../styles/input';
 
 const InputWrapper = styled.div`
   display: flex;
@@ -30,18 +30,17 @@ const InputWrapper = styled.div`
       flex-basis: 25%;
     }
   }
-`
+`;
 
 function SearchForm() {
-
   return (
     <form>
       <InputWrapper>
-        <Input placeholder="ex. pasta"/>
+        <Input placeholder="ex. pasta" />
         <Button>Search</Button>
       </InputWrapper>
     </form>
   );
-};
+}
 
 export { SearchForm };

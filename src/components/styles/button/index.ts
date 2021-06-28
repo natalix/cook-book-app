@@ -1,12 +1,12 @@
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
 export const Button = styled.button`
   color: red;
-  background-color: ${props => props.theme.colors.chestnut};
+  background-color: ${(props) => props.theme.colors.chestnut};
   align-items: center;
-  border: 2px solid ${props => props.theme.colors.chestnut};
+  border: 2px solid ${(props) => props.theme.colors.chestnut};
   border-radius: 4px;
-  color: ${props => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.white};
   cursor: pointer;
   display: flex;
   flex: 1;
@@ -18,13 +18,13 @@ export const Button = styled.button`
   margin: 4px 2px;
   min-height: 40px;
   opacity: 0.9;
-  transition: ${props => props.theme.transitions};
+  transition: ${(props) => props.theme.transitions};
 
   &:focus {
     outline: none;
   }
 
   &:hover {
-  opacity: 0.6;
+    opacity: 0.6;
   }
-`
+`;
