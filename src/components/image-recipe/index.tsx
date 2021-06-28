@@ -19,7 +19,6 @@ const RecipeName = styled.h2`
   position: absolute;
   bottom: 0;
   z-index: 1;
-  font-family: 'Merriweather', serif;
   font-size: 30px;
   font-weight: 300;
   border-bottom: solid 1px #ffffff;
