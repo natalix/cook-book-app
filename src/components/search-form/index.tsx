@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 
 import { md, lg } from '../../styles';
 import { Button } from '../styles/button';
 import { Input } from '../styles/input';
+import { useInputState } from '../../hooks/useInputState';
 
 const InputWrapper = styled.div`
   display: flex;
@@ -11,6 +12,7 @@ const InputWrapper = styled.div`
 
   ${md} {
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
   }
 
@@ -21,23 +23,46 @@ const InputWrapper = styled.div`
 
   input {
     ${md} {
-      flex-basis: 75%;
+      flex-basis: 70%;
     }
   }
 
   button {
     ${md} {
-      flex-basis: 25%;
+      flex-basis: calc(25% - 4px);
     }
+  }
+
+  span {
+    flex-basis: 100%;
+    color: ${(props) => props.theme.colors.chestnut};
+    font-size: 12px;
   }
 `;
 
-function SearchForm() {
+function SearchForm({ searchRecipes }) {
+  const [showError, setShowError] = useState(false);
+  const [value, handleChange, reset] = useInputState('');
+
+  const onSubmitHandler = (
+    event: React.FormEvent<HTMLFormElement> | React.FormEvent<HTMLElement>
+  ) => {
+    event.preventDefault();
+    if (value.length < 3) {
+      setShowError(true);
+    } else {
+      setShowError(false);
+      searchRecipes(value);
+      reset();
+    }
+  };
+
   return (
-    <form>
+    <form onSubmit={onSubmitHandler}>
       <InputWrapper>
-        <Input placeholder="ex. pasta" />
+        <Input placeholder="ex. pasta" value={value} onChange={handleChange} />
         <Button>Search</Button>
+        {showError && <span>Type at least 3 characters...</span>}
       </InputWrapper>
     </form>
   );

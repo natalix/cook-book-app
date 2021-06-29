@@ -1,7 +1,18 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 
-const ImageWrapper = styled.a`
+type Props = {
+  id: number;
+  image: string;
+  name: string;
+};
+
+type Image = {
+  image: string;
+};
+
+const ImageWrapper = styled.div<Image>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -10,9 +21,7 @@ const ImageWrapper = styled.a`
   background-size: cover;
   background-repeat: no-repeat;
   cursor: pointer;
-
-  /* TO DO Change image from API */
-  background-image: url('https://spoonacular.com/recipeImages/716429-312x231.jpg');
+  background-image: url(${(props) => props.image});
 `;
 const RecipeName = styled.h2`
   color: ${(props) => props.theme.colors.white};
@@ -21,7 +30,7 @@ const RecipeName = styled.h2`
   z-index: 1;
   font-size: 30px;
   font-weight: 300;
-  border-bottom: solid 1px #ffffff;
+  border-bottom: solid 1px ${(props) => props.theme.colors.white};
   padding-bottom: 5px;
   line-height: 1.5;
   margin: 0 5px 10% 10%;
@@ -41,16 +50,15 @@ const ImageOverlay = styled.div`
   top: 0;
 `;
 
-function ImageRecipe() {
+function ImageRecipe(props: Props) {
+  const { id, name, image } = props;
   return (
-    // TO DO Change href into Link with data from API
-    <ImageWrapper href="#">
-      <RecipeName>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel
-        malesuada neque, et porttitor erat.
-      </RecipeName>
-      <ImageOverlay />
-    </ImageWrapper>
+    <NavLink to={`/recipe/${id}`}>
+      <ImageWrapper image={image}>
+        <RecipeName>{name}</RecipeName>
+        <ImageOverlay />
+      </ImageWrapper>
+    </NavLink>
   );
 }
 
