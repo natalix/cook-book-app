@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from '@emotion/styled';
 
 import { md, lg } from '../../styles';
@@ -30,7 +29,7 @@ const IconWrapper = styled.div`
   justify-content: flex-end;
 `;
 
-function Header() {
+export const Header = () => {
   return (
     <HeaderTag>
       <ImgWrapper>
@@ -44,6 +43,4 @@ function Header() {
       </IconWrapper>
     </HeaderTag>
   );
-}
-
-export { Header };
+};

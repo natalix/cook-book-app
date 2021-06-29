@@ -1,12 +1,9 @@
-import React from 'react';
 import { BsHeart } from 'react-icons/bs';
 
-function Favourites() {
+export const Favourites = () => {
   return (
     <>
       <BsHeart />
     </>
   );
-}
-
-export { Favourites };
+};

@@ -1,8 +1,12 @@
-import React from 'react';
 import styled from '@emotion/styled';
 
 import { ImageRecipe } from '../image-recipe';
 import { md, lg } from '../../styles';
+import { SearchRecipiesType } from '../../types';
+
+type Props = {
+  recipes: SearchRecipiesType;
+};
 
 const RecipesWrapper = styled.div`
   margin: 30px 0;
@@ -25,12 +29,16 @@ const RecipesWrapper = styled.div`
   }
 `;
 
-function RecipesListing() {
-  // TO DO Change with API data
-  const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-  const result = items.map((item) => <ImageRecipe key={item} />);
+export const RecipesListing = (props: Props) => {
+  const { recipes } = props;
+  const result = recipes.results.map((item) => (
+    <ImageRecipe
+      key={item.id}
+      name={item.title}
+      image={item.image}
+      id={item.id}
+    />
+  ));
 
   return <RecipesWrapper>{result}</RecipesWrapper>;
-}
-
-export { RecipesListing };
+};

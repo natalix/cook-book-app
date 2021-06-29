@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 
 export const Button = styled.button`
-  color: red;
   background-color: ${(props) => props.theme.colors.chestnut};
   align-items: center;
   border: 2px solid ${(props) => props.theme.colors.chestnut};

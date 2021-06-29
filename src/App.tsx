@@ -1,5 +1,4 @@
-import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, NavLink } from 'react-router-dom';
 
 import { ThemeProvider } from '@emotion/react';
 
@@ -17,12 +16,13 @@ function App() {
       <GlobalStyles />
       <Content>
         <Container>
-          <Header />
+          <NavLink to="/">
+            <Header />
+          </NavLink>
         </Container>
         <Switch>
           <Route exact path="/" component={Home} />
-          {/* TO DO id need to be changed from API data */}
-          <Route exact path="/recipe-id" component={Recipe} />
+          <Route path="/recipe/:recipeId(\d+)" component={Recipe} />
           <Redirect to="/" />
         </Switch>
       </Content>
