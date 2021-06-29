@@ -1,9 +1,8 @@
-import React from 'react';
 import styled from '@emotion/styled';
 
 import { ImageRecipe } from '../image-recipe';
 import { md, lg } from '../../styles';
-import { SearchRecipiesType } from '../../interfaces/recipies.interface';
+import { SearchRecipiesType } from '../../types';
 
 type Props = {
   recipes: SearchRecipiesType;
@@ -30,7 +29,7 @@ const RecipesWrapper = styled.div`
   }
 `;
 
-function RecipesListing(props: Props) {
+export const RecipesListing = (props: Props) => {
   const { recipes } = props;
   const result = recipes.results.map((item) => (
     <ImageRecipe
@@ -42,6 +41,4 @@ function RecipesListing(props: Props) {
   ));
 
   return <RecipesWrapper>{result}</RecipesWrapper>;
-}
-
-export { RecipesListing };
+};

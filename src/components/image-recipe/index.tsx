@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
@@ -50,7 +49,7 @@ const ImageOverlay = styled.div`
   top: 0;
 `;
 
-function ImageRecipe(props: Props) {
+export const ImageRecipe = (props: Props) => {
   const { id, name, image } = props;
   return (
     <NavLink to={`/recipe/${id}`}>
@@ -60,6 +59,4 @@ function ImageRecipe(props: Props) {
       </ImageWrapper>
     </NavLink>
   );
-}
-
-export { ImageRecipe };
+};

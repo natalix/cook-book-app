@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from '@emotion/styled';
 
 const IngredientsWrapper = styled.ol`
@@ -16,20 +15,17 @@ const IngredientsWrapper = styled.ol`
   }
 `;
 
-function Ingredients(props) {
-  console.log(props);
+export const Ingredients = (props) => {
   const { ingredients } = props;
   return (
     <IngredientsWrapper>
-      {ingredients.map((ingredient) => (
-        <li key={ingredient.id}>
-          <span>{ingredient.amount}</span>
-          <span>{ingredient.unit}</span>
-          <span>{ingredient.name}</span>
+      {ingredients.map(({ id, amount, unit, name }) => (
+        <li key={id}>
+          <span>{amount}</span>
+          <span>{unit}</span>
+          <span>{name}</span>
         </li>
       ))}
     </IngredientsWrapper>
   );
-}
-
-export { Ingredients };
+};

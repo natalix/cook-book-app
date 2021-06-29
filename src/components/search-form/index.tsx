@@ -40,7 +40,7 @@ const InputWrapper = styled.div`
   }
 `;
 
-function SearchForm({ searchRecipes }) {
+export const SearchForm = ({ searchRecipes }) => {
   const [showError, setShowError] = useState(false);
   const [value, handleChange, reset] = useInputState('');
 
@@ -62,10 +62,8 @@ function SearchForm({ searchRecipes }) {
       <InputWrapper>
         <Input placeholder="ex. pasta" value={value} onChange={handleChange} />
         <Button>Search</Button>
-        {showError && <span>Type at least 3 characters...</span>}
+        {showError ? <span>Type at least 3 characters...</span> : null}
       </InputWrapper>
     </form>
   );
-}
-
-export { SearchForm };
+};

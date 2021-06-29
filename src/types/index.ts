@@ -1,14 +1,14 @@
-export interface SearchSingleRecipeType {
+export type SearchSingleRecipeType = {
   id: number;
   title: string;
   image: string;
-}
+};
 
-export interface SearchRecipiesType {
+export type SearchRecipiesType = {
   results: SearchSingleRecipeType[];
-}
+};
 
-export interface RecipeType {
+export type RecipeType = {
   vegetarian: boolean;
   vegan: boolean;
   glutenFree: boolean;
@@ -20,4 +20,4 @@ export interface RecipeType {
   servings: number;
   image: string;
   instructions: string;
-}
+};

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Route, Switch, Redirect, NavLink } from 'react-router-dom';
 
 import { ThemeProvider } from '@emotion/react';

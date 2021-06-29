@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 
 import { md } from '../../styles';
 import { Container } from '../styles/container';
-import { Query } from '../../api/api';
-import { RecipeType } from '../../interfaces/recipies.interface';
+import { getARecipe } from '../../api/api';
+import { RecipeType } from '../../types';
 import { InfoCard } from '../styles/infoCard';
 import { Label } from '../styles/label';
 import { Ingredients } from '../ingredients';
@@ -28,13 +29,31 @@ const HeaderWrapper = styled.div`
     background-color: ${(props) => props.theme.colors.chestnutLight};
     text-align: center;
     margin-top: 0;
-    color: white;
+    color: ${(props) => props.theme.colors.white};
     font-weight: 100;
   }
 
   ${md} {
     grid-column: 1 / span 1;
     grid-row: 1 / span 2;
+  }
+`;
+
+const ErrorWrapper = styled.div`
+  padding: 10px 5px 30px;
+  background-color: ${(props) => props.theme.colors.chestnutLight};
+  text-align: center;
+  margin-top: 0;
+  color: ${(props) => props.theme.colors.white};
+
+  h1 {
+    font-weight: 100;
+  }
+
+  a,
+  a:visited {
+    text-transform: uppercase;
+    color: ${(props) => props.theme.colors.white};
   }
 `;
 
@@ -72,7 +91,7 @@ const DescriptionWrapper = styled.p`
   }
 `;
 
-function Recipe(props) {
+export const Recipe = (props) => {
   // eslint-disable-next-line
   const recipeId = props.match.params.recipeId;
 
@@ -80,7 +99,7 @@ function Recipe(props) {
   const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
-    Query.getARecipe(recipeId)
+    getARecipe(recipeId)
       .then((data) => {
         setRecipe(data);
       })
@@ -89,13 +108,11 @@ function Recipe(props) {
         // eslint-disable-next-line
         console.error(err);
       });
-    return () => {};
   }, [recipeId]);
 
-  console.log(recipe, isError);
   return (
     <Container>
-      {recipe && (
+      {recipe ? (
         <RecipeWrapper>
           <HeaderWrapper>
             <h1>{recipe?.title}</h1>
@@ -124,9 +141,13 @@ function Recipe(props) {
             dangerouslySetInnerHTML={{ __html: recipe?.instructions }}
           />
         </RecipeWrapper>
-      )}
+      ) : null}
+      {isError ? (
+        <ErrorWrapper>
+          <h1>Something went wrong... </h1>
+          <NavLink to="/">Go back to Search Page</NavLink>
+        </ErrorWrapper>
+      ) : null}
     </Container>
   );
-}
-
-export { Recipe };
+};

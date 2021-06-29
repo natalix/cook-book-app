@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from '@emotion/styled';
 
 import { SearchForm } from '../search-form';
 import { RecipesListing } from '../recipes-listing';
 import { Container } from '../styles/container';
-import { SearchRecipiesType } from '../../interfaces/recipies.interface';
-import { Query } from '../../api/api';
+import { SearchRecipiesType } from '../../types';
+import { getRecipes } from '../../api/api';
 
 const ActionStatus = styled.h1`
   font-size: 24px;
@@ -33,13 +33,13 @@ const dummy = {
   totalResults: 36,
 };
 
-function Home() {
+export const Home = () => {
   const [recipes, setRecipes] = useState<SearchRecipiesType>(dummy);
   const [queryStatus, setQueryStatus] = useState<string>('empty');
   const [queryValue, setQueryValue] = useState<string>('');
 
   const searchRecipes = (val) => {
-    Query.getRecipes(val, 0)
+    getRecipes(val, 0)
       .then((data) => {
         setRecipes(data);
         if (data.results.length > 0) {
@@ -75,9 +75,7 @@ function Home() {
     <Container>
       <SearchForm searchRecipes={searchRecipes} />
       <ActionStatus>{actionStatus}</ActionStatus>
-      {recipes && <RecipesListing recipes={recipes} />}
+      {recipes ? <RecipesListing recipes={recipes} /> : null}
     </Container>
   );
-}
-
-export { Home };
+};

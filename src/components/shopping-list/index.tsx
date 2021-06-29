@@ -1,12 +1,9 @@
-import React from 'react';
 import { FaOpencart } from 'react-icons/fa';
 
-function ShoppingList() {
+export const ShoppingList = () => {
   return (
     <>
       <FaOpencart />
     </>
   );
-}
-
-export { ShoppingList };
+};
