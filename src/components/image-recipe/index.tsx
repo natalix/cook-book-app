@@ -49,8 +49,7 @@ const ImageOverlay = styled.div`
   top: 0;
 `;
 
-export const ImageRecipe = (props: Props) => {
-  const { id, name, image } = props;
+export const ImageRecipe = ({ id, name, image }: Props) => {
   return (
     <NavLink to={`/recipe/${id}`}>
       <ImageWrapper image={image}>

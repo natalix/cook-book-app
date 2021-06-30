@@ -21,3 +21,11 @@ export type RecipeType = {
   image: string;
   instructions: string;
 };
+
+export type Favourite = {
+  image: string;
+  title: string;
+  id: number;
+};
+
+export type Favourites = Array<Favourite>;

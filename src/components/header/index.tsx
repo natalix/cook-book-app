@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 
 import { md, lg } from '../../styles';
 
@@ -33,7 +34,9 @@ export const Header = () => {
   return (
     <HeaderTag>
       <ImgWrapper>
-        <img src={Logo} alt="Cookbook-App" />
+        <NavLink to="/">
+          <img src={Logo} alt="Cookbook-App" />
+        </NavLink>
       </ImgWrapper>
       <IconWrapper>
         <ShoppingList />

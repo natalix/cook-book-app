@@ -29,8 +29,7 @@ const RecipesWrapper = styled.div`
   }
 `;
 
-export const RecipesListing = (props: Props) => {
-  const { recipes } = props;
+export const RecipesListing = ({ recipes }: Props) => {
   const result = recipes.results.map((item) => (
     <ImageRecipe
       key={item.id}
