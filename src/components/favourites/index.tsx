@@ -9,7 +9,7 @@ import { FavouriteContext } from '../contexts/FavouriteContext';
 
 type FavType = {
   favourites: Fav;
-  removeFromFavourite;
+  removeFromFavourites;
 };
 
 const FavouriteWrapper = styled.div`
@@ -105,7 +105,7 @@ const ListItem = styled.div`
 `;
 
 export const Favourites = () => {
-  const { favourites, removeFromFavourite } = useContext(
+  const { favourites, removeFromFavourites } = useContext(
     FavouriteContext
   ) as FavType;
 
@@ -129,7 +129,7 @@ export const Favourites = () => {
                 <img src={image} alt={title} />
                 <h3>{title}</h3>
               </NavLink>
-              <button type="button" onClick={() => removeFromFavourite(id)}>
+              <button type="button" onClick={() => removeFromFavourites(id)}>
                 <BsTrash />
               </button>
             </ListItem>

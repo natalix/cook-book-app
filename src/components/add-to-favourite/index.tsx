@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import styled from '@emotion/styled';
 
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
@@ -7,8 +7,8 @@ import { Favourite, Favourites as Fav } from '../../types';
 
 type FavType = {
   favourites: Fav;
-  addToFavourite;
-  removeFromFavourite;
+  addToFavourites;
+  removeFromFavourites;
 };
 
 const AddToButton = styled.button`
@@ -23,31 +23,32 @@ const AddToButton = styled.button`
   }
 `;
 
-export const AddToFavourite = ({ id, title, image }: Favourite) => {
-  const { favourites, removeFromFavourite, addToFavourite } = useContext(
+export const AddToFavourites = ({ id, title, image }: Favourite) => {
+  const { favourites, removeFromFavourites, addToFavourites } = useContext(
     FavouriteContext
   ) as FavType;
 
-  const [isInFav, setIsInFav] = useState<boolean>();
-  const isFav = favourites.findIndex((item) => item.id === id) !== -1;
+  const [isFavourite, setIsFavourite] = useState<boolean>();
 
   useEffect(() => {
-    setIsInFav(isFav);
-  }, [isFav]);
+    const favouriteStatus =
+      favourites.findIndex((item) => item.id === id) !== -1;
+    setIsFavourite(favouriteStatus);
+  }, [favourites, id]);
 
   const handleChange = () => {
-    if (isFav) {
-      removeFromFavourite(id);
-      setIsInFav(false);
+    if (isFavourite) {
+      removeFromFavourites(id);
+      setIsFavourite(false);
     } else {
-      addToFavourite({ image, title, id });
-      setIsInFav(true);
+      addToFavourites({ image, title, id });
+      setIsFavourite(true);
     }
   };
 
   return (
     <AddToButton onClick={handleChange}>
-      {isInFav ? <BsHeartFill /> : <BsHeart />}
+      {isFavourite ? <BsHeartFill /> : <BsHeart />}
     </AddToButton>
   );
 };

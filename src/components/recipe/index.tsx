@@ -9,7 +9,7 @@ import { RecipeType } from '../../types';
 import { InfoCard } from '../styles/infoCard';
 import { Label } from '../styles/label';
 import { Ingredients } from '../ingredients';
-import { AddToFavourite } from '../add-to-favourite';
+import { AddToFavourites } from '../add-to-favourite';
 
 const RecipeWrapper = styled.div`
   display: grid;
@@ -122,7 +122,7 @@ export const Recipe = ({ match }) => {
           <RecipeInfoWrapper>
             <HeaderWrapper>
               <h1>{recipe?.title}</h1>
-              <AddToFavourite
+              <AddToFavourites
                 id={recipe.id}
                 title={recipe.title}
                 image={recipe.image}
