@@ -1,5 +1,14 @@
 import styled from '@emotion/styled';
 
+type Ingredient = {
+  id: number;
+  amount: string;
+  unit: string;
+  name: string;
+};
+
+type Props = { ingredients: Array<Ingredient> };
+
 const IngredientsWrapper = styled.ol`
   margin: 0;
   padding: 0;
@@ -15,8 +24,7 @@ const IngredientsWrapper = styled.ol`
   }
 `;
 
-export const Ingredients = (props) => {
-  const { ingredients } = props;
+export const Ingredients = ({ ingredients }: Props) => {
   return (
     <IngredientsWrapper>
       {ingredients.map(({ id, amount, unit, name }) => (

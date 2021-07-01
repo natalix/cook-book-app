@@ -9,6 +9,7 @@ import { RecipeType } from '../../types';
 import { InfoCard } from '../styles/infoCard';
 import { Label } from '../styles/label';
 import { Ingredients } from '../ingredients';
+import { AddToFavourites } from '../add-to-favourite';
 
 const RecipeWrapper = styled.div`
   display: grid;
@@ -23,19 +24,25 @@ const RecipeWrapper = styled.div`
   }
 `;
 
-const HeaderWrapper = styled.div`
-  h1 {
-    padding: 10px 5px;
-    background-color: ${(props) => props.theme.colors.chestnutLight};
-    text-align: center;
-    margin-top: 0;
-    color: ${(props) => props.theme.colors.white};
-    font-weight: 100;
-  }
-
+const RecipeInfoWrapper = styled.div`
   ${md} {
     grid-column: 1 / span 1;
     grid-row: 1 / span 2;
+  }
+`;
+
+const HeaderWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 5px;
+  margin-bottom: 20px;
+  background-color: ${(props) => props.theme.colors.chestnutLight};
+
+  h1 {
+    margin: 0;
+    color: ${(props) => props.theme.colors.white};
+    font-weight: 100;
   }
 `;
 
@@ -91,10 +98,8 @@ const DescriptionWrapper = styled.p`
   }
 `;
 
-export const Recipe = (props) => {
-  // eslint-disable-next-line
-  const recipeId = props.match.params.recipeId;
-
+export const Recipe = ({ match }) => {
+  const { recipeId } = match.params;
   const [recipe, setRecipe] = useState<RecipeType>();
   const [isError, setIsError] = useState<boolean>(false);
 
@@ -114,8 +119,15 @@ export const Recipe = (props) => {
     <Container>
       {recipe ? (
         <RecipeWrapper>
-          <HeaderWrapper>
-            <h1>{recipe?.title}</h1>
+          <RecipeInfoWrapper>
+            <HeaderWrapper>
+              <h1>{recipe?.title}</h1>
+              <AddToFavourites
+                id={recipe.id}
+                title={recipe.title}
+                image={recipe.image}
+              />
+            </HeaderWrapper>
             <AdditionalWrapper>
               <InfoCard>
                 <p>servings</p>
@@ -130,7 +142,7 @@ export const Recipe = (props) => {
             {recipe?.glutenFree && <Label>Gluten free</Label>}
             {recipe?.vegan && <Label>Vegan</Label>}
             {recipe?.vegetarian && <Label>Vegetarian</Label>}
-          </HeaderWrapper>
+          </RecipeInfoWrapper>
           <ImageWrapper>
             <img src={recipe?.image} alt={recipe?.title} />
           </ImageWrapper>

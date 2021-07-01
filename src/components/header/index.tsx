@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 
 import { md, lg } from '../../styles';
 
 import { Favourites } from '../favourites';
-import { ShoppingList } from '../shopping-list';
 import Logo from '../../assets/img/logo.png';
 
 const HeaderTag = styled.header`
@@ -24,7 +24,7 @@ const ImgWrapper = styled.div`
 `;
 
 const IconWrapper = styled.div`
-  flex-basis: 10%;
+  flex-basis: 20%;
   display: flex;
   justify-content: flex-end;
 `;
@@ -33,11 +33,10 @@ export const Header = () => {
   return (
     <HeaderTag>
       <ImgWrapper>
-        <img src={Logo} alt="Cookbook-App" />
+        <NavLink to="/">
+          <img src={Logo} alt="Cookbook-App" />
+        </NavLink>
       </ImgWrapper>
-      <IconWrapper>
-        <ShoppingList />
-      </IconWrapper>
       <IconWrapper>
         <Favourites />
       </IconWrapper>
