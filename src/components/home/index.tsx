@@ -13,28 +13,8 @@ const ActionStatus = styled.h1`
   margin: 40px 0 0;
 `;
 
-const dummy = {
-  results: [
-    {
-      id: 656329,
-      title: 'Pizza bites with pumpkin',
-      image: 'https://spoonacular.com/recipeImages/656329-312x231.jpg',
-      imageType: 'jpg',
-    },
-    {
-      id: 680975,
-      title: 'BLT Pizza',
-      image: 'https://spoonacular.com/recipeImages/680975-312x231.jpg',
-      imageType: 'jpg',
-    },
-  ],
-  offset: 0,
-  number: 2,
-  totalResults: 36,
-};
-
 export const Home = () => {
-  const [recipes, setRecipes] = useState<SearchRecipiesType>(dummy);
+  const [recipes, setRecipes] = useState<SearchRecipiesType>();
   const [queryStatus, setQueryStatus] = useState<string>('empty');
   const [queryValue, setQueryValue] = useState<string>('');
 

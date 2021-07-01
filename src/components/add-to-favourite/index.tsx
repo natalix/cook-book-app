@@ -1,9 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import styled from '@emotion/styled';
 
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
-import { Favourite } from '../../types';
-import { useFavouriteState } from '../../hooks/useFavouriteState';
+import { FavouriteContext } from '../contexts/FavouriteContext';
+import { Favourite, Favourites as Fav } from '../../types';
+
+type FavType = {
+  favourites: Fav;
+  addToFavourite;
+  removeFromFavourite;
+};
 
 const AddToButton = styled.button`
   border: none;
@@ -18,11 +24,9 @@ const AddToButton = styled.button`
 `;
 
 export const AddToFavourite = ({ id, title, image }: Favourite) => {
-  const initialFavourites = JSON.parse(
-    window.localStorage.getItem('favourites') || '{}'
-  );
-  const { favourites, addToFavourite, removeFromFavourite } =
-    useFavouriteState(initialFavourites);
+  const { favourites, removeFromFavourite, addToFavourite } = useContext(
+    FavouriteContext
+  ) as FavType;
 
   const [isInFav, setIsInFav] = useState<boolean>();
   const isFav = favourites.findIndex((item) => item.id === id) !== -1;
